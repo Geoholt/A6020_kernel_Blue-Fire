@@ -1,1 +1,1 @@
-#define UTS_RELEASE "3.10.108-Blue-Fire-V0.2"
+#define UTS_RELEASE "3.10.108-Blue-Fire-V1+"
