@@ -7,7 +7,7 @@
  *
  */
 
-#define TSK_ACTIVE_MM 752 /* offsetof(struct task_struct, active_mm)	// */
+#define TSK_ACTIVE_MM 744 /* offsetof(struct task_struct, active_mm)	// */
 
 #define TI_FLAGS 0 /* offsetof(struct thread_info, flags)	// */
 #define TI_PREEMPT 80 /* offsetof(struct thread_info, preempt_count)	// */
@@ -88,36 +88,6 @@
 #define SLEEP_SAVE_SP_PHYS 8 /* offsetof(struct sleep_save_sp, save_ptr_stash_phys)	// */
 #define SLEEP_SAVE_SP_VIRT 0 /* offsetof(struct sleep_save_sp, save_ptr_stash)	// */
 
-#define VCPU_CONTEXT 256 /* offsetof(struct kvm_vcpu, arch.ctxt)	// */
-#define CPU_GP_REGS 0 /* offsetof(struct kvm_cpu_context, gp_regs)	// */
-#define CPU_USER_PT_REGS 0 /* offsetof(struct kvm_regs, regs)	// */
-#define CPU_FP_REGS 336 /* offsetof(struct kvm_regs, fp_regs)	// */
-#define CPU_SP_EL1 272 /* offsetof(struct kvm_regs, sp_el1)	// */
-#define CPU_ELR_EL1 280 /* offsetof(struct kvm_regs, elr_el1)	// */
-#define CPU_SPSR 288 /* offsetof(struct kvm_regs, spsr)	// */
-#define CPU_SYSREGS 864 /* offsetof(struct kvm_cpu_context, sys_regs)	// */
-#define VCPU_ESR_EL2 1352 /* offsetof(struct kvm_vcpu, arch.fault.esr_el2)	// */
-#define VCPU_FAR_EL2 1360 /* offsetof(struct kvm_vcpu, arch.fault.far_el2)	// */
-#define VCPU_HPFAR_EL2 1368 /* offsetof(struct kvm_vcpu, arch.fault.hpfar_el2)	// */
-#define VCPU_HCR_EL2 1344 /* offsetof(struct kvm_vcpu, arch.hcr_el2)	// */
-#define VCPU_IRQ_LINES 2008 /* offsetof(struct kvm_vcpu, arch.irq_lines)	// */
-#define VCPU_HOST_CONTEXT 1376 /* offsetof(struct kvm_vcpu, arch.host_cpu_context)	// */
-#define VCPU_TIMER_CNTV_CTL 1840 /* offsetof(struct kvm_vcpu, arch.timer_cpu.cntv_ctl)	// */
-#define VCPU_TIMER_CNTV_CVAL 1848 /* offsetof(struct kvm_vcpu, arch.timer_cpu.cntv_cval)	// */
-#define KVM_TIMER_CNTVOFF 1240 /* offsetof(struct kvm, arch.timer.cntvoff)	// */
-#define KVM_TIMER_ENABLED 1232 /* offsetof(struct kvm, arch.timer.enabled)	// */
-#define VCPU_KVM 0 /* offsetof(struct kvm_vcpu, kvm)	// */
-#define VCPU_VGIC_CPU 1384 /* offsetof(struct kvm_vcpu, arch.vgic_cpu)	// */
-#define VGIC_CPU_HCR 164 /* offsetof(struct vgic_cpu, vgic_hcr)	// */
-#define VGIC_CPU_VMCR 168 /* offsetof(struct vgic_cpu, vgic_vmcr)	// */
-#define VGIC_CPU_MISR 172 /* offsetof(struct vgic_cpu, vgic_misr)	// */
-#define VGIC_CPU_EISR 176 /* offsetof(struct vgic_cpu, vgic_eisr)	// */
-#define VGIC_CPU_ELRSR 184 /* offsetof(struct vgic_cpu, vgic_elrsr)	// */
-#define VGIC_CPU_APR 192 /* offsetof(struct vgic_cpu, vgic_apr)	// */
-#define VGIC_CPU_LR 196 /* offsetof(struct vgic_cpu, vgic_lr)	// */
-#define VGIC_CPU_NR_LR 160 /* offsetof(struct vgic_cpu, nr_lr)	// */
-#define KVM_VTTBR 408 /* offsetof(struct kvm, arch.vttbr)	// */
-#define KVM_VGIC_VCTRL 424 /* offsetof(struct kvm, arch.vgic.vctrl_base)	// */
 #define CPU_SUSPEND_SZ 96 /* sizeof(struct cpu_suspend_ctx)	// */
 #define CPU_CTX_SP 88 /* offsetof(struct cpu_suspend_ctx, sp)	// */
 #define MPIDR_HASH_MASK 0 /* offsetof(struct mpidr_hash, mask)	// */

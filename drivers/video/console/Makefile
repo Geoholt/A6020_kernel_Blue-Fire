@@ -22,6 +22,7 @@ obj-$(CONFIG_FONTS) += font.o
 
 # Each configuration option enables a list of files.
 
+
 obj-$(CONFIG_DUMMY_CONSOLE)       += dummycon.o
 obj-$(CONFIG_SGI_NEWPORT_CONSOLE) += newport_con.o font.o
 obj-$(CONFIG_STI_CONSOLE)         += sticon.o sticore.o font.o

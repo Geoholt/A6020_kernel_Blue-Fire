@@ -113,6 +113,13 @@ config ARCH_MSM8909
 	select MSM_JTAG_MM if CORESIGHT_ETM
 	select RCU_BOOST if DEBUG_KMEMLEAK
 
+
+config LLCON
+	bool "Low level console"
+	default n
+	select FONTS
+
+
 config ARCH_MSM8916
 	bool "MSM8916"
 	select ARCH_MSM_CORTEXMP

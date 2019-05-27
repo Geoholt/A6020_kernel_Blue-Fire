@@ -73,13 +73,6 @@
 #define BLANK_FLAG_LP	FB_BLANK_VSYNC_SUSPEND
 #define BLANK_FLAG_ULP	FB_BLANK_NORMAL
 
-#define MDSS_BRIGHT_TO_BL_DIMMER(out, v) do {\
-			out = (12*v*v+1393*v+3060)/4465;\
-			} while (0)
-
-bool backlight_dimmer = false;
-module_param(backlight_dimmer, bool, 0755);
-
 static struct fb_info *fbi_list[MAX_FBI_LIST];
 static int fbi_list_index;
 
@@ -274,13 +267,6 @@ static void mdss_fb_set_bl_brightness(struct led_classdev *led_cdev,
 	if (value > mfd->panel_info->brightness_max)
 		value = mfd->panel_info->brightness_max;
 
-
-	if (backlight_dimmer) {
-		if (value < 3)
-			bl_lvl = 1;
-		else
-			MDSS_BRIGHT_TO_BL_DIMMER(bl_lvl, value);
-	} else {
 	/* This maps android backlight level 0 to 255 into
 	   driver backlight level 0 to bl_max with rounding */
 	/* heming@wingtech.com, 20140731, customize the backlight by wingtech defined, begin */
@@ -295,8 +281,6 @@ static void mdss_fb_set_bl_brightness(struct led_classdev *led_cdev,
 				mfd->panel_info->brightness_max);
 	 #endif
 	/* heming@wingtech.com, 20140731, customize the backlight by wingtech defined, end */ 
-	}
-
 	if (!bl_lvl && value)
 		bl_lvl = 1;
 
@@ -2954,6 +2938,11 @@ static int __mdss_fb_display_thread(void *data)
 		wait_event(mfd->commit_wait_q,
 				(atomic_read(&mfd->commits_pending) ||
 				 kthread_should_stop()));
+
+		      if (ret) {
+ 				pr_info("%s: interrupted", __func__);
+ 				continue;
+ 		      }
 
 		if (kthread_should_stop())
 			break;
